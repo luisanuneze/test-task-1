@@ -39,16 +39,20 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 **Options**
 
-2.1.1: `SPA`,
-2.1.2: `Static`,
-2.1.3: `Dynamic`,
+2.1.1: `SPA`
+
+2.1.2: `Static`
+
+2.1.3: `Dynamic`
 
 Please choose an option here and explain **why** in your own words:
+
 -------------------------YOUR ANSWER---------------------------
 
 2.2 What are the benefits of `SSR`?
 
 Please explain in your own words:
+
 -------------------------YOUR ANSWER---------------------------
 
 ### 3. Identify and fix bad code.
