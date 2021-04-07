@@ -76,6 +76,7 @@ File location: `@/pages/index.vue`.
 What would be the very best place and the best way to store section components of a page?
 
 4.1 Please rename the `page section component` files if you find a better naming convention.
+
 4.2 Please relocate the `page section component` files if you find a better place for them to live.
 
 ### 5. Shared Page Data
