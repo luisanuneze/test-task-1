@@ -60,7 +60,7 @@ export default {
   // Establishing resources globally
   styleResources: {
     scss: [
-      "~/node_modules/bootstrap-vue/index.scss",
+      "~/node_modules/bootstrap-vue/src/index.scss",
       "~/node_modules/bootstrap/scss/"
     ]
   },
