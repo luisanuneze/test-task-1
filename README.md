@@ -49,11 +49,18 @@ Please choose an option here and explain **why** in your own words:
 
 -------------------------YOUR ANSWER---------------------------
 
+For a simple portfolio website, I would prefer to work with Dynamic build mode. This is because it utilizes content management for customization and creation. Comparing it with static websites, those are entirely founded on HTML and CSS; on the other hand, SPA’s can be an option for it, but because of the use case, a dynamic website can fit better. 
+
+Taking into consideration the need to manage it from a CMS, it’s important to be able to handle any change of information and fetching contact form data.
+
+
 2.2 What are the benefits of `SSR`?
 
 Please explain in your own words:
 
 -------------------------YOUR ANSWER---------------------------
+
+Server-Side Rendering allows programmers to improve user experience. The website or web pages are rendered from the server instead of rendering from the browser, which means that the content is fetched from the server instead of the client-side, improving fetching data time. Also, the website loads quickly because the browser fetches content from the server before rendering it for the user.
 
 ### 3. Identify and fix bad code.
 
@@ -79,8 +86,19 @@ What would be the very best place and the best way to store section components o
 
 4.2 Please relocate the `page section component` files if you find a better place for them to live.
 
+Optimized file architecture is based on naming conventions. Avoiding single word components like Header.vue or Footer.vue, choose prefixing them with its function.
+**Reusable globally registered UI components**
+AppPrefixedName.vue / BasePrefixedName.vue
+AppHeader.vue
+**Single-instance components where only one can be active at the same time**
+ThePrefixedName.vue
+TheSidebar.vue
+
+
 ### 5. Shared Page Data
 
 Where is the best place and what is the best time to request shared page data (e.g. `Navbar`, `Footer`, `Social Media Icons`, `Contact Details`, etc...) from the server in a `Nuxt.js` app? Let's say you have an api endpoint to get all shared data. Something like `/api/shared`. From this endpoint you want to get all shared data, that you need to reuse in many components all over again. You want to use it in the navbar, in the footer and sometimes in single components, so you want to call it only once. Where do you call it?
 
 Please write an answer below, or (**even better**) demonstrate it, right in the code. Please tell us a few words about your decision.
+
+**Taking into consideration an API endpoint that calls shared data, I call it from a plugin that contains an async function that will dispatch a function in which the data is fetched. This plugin can then be called wherever it’s needed.**
