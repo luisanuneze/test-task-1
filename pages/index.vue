@@ -1,15 +1,11 @@
 <template>
-  <div v-if="loaded">
-    <AppHeader
-      :header="headerSection"
-      :background_image="headerSection.background_image"
-    />
+  <p v-if="$fetchState.pending">Fetching sections...</p>
+  <p v-else-if="$fetchState.error">An error occurred</p>
+  <div v-else>
+    <AppHeader :header="headerSection" />
     <HowItWorks :howItWorksSection="howItWorksSection" />
     <div class="benefits-section-wrapper">
-      <Benefits
-        :sectionBenefits="benefitsSection"
-        :title="benefitsSection.title"
-      />
+      <Benefits :sectionBenefits="benefitsSection" />
     </div>
     <Testimonials :dataTestimonials="testimonialsSection" />
     <div class="wrapper-contact">
@@ -35,25 +31,25 @@ export default {
   },
   computed: {
     headerSection() {
-      return this.page.acf.section_header || {};
+      return this.page.acf?.section_header;
     },
     howItWorksSection() {
-      return this.page.acf.section_how_it_works || {};
+      return this.page.acf?.section_how_it_works;
     },
     benefitsSection() {
-      return this.page.acf.section_benefits || {};
+      return this.page.acf?.section_benefits;
     },
     testimonialsSection() {
-      return this.page.acf.section_testimonials || {};
+      return this.page.acf?.section_testimonials;
     },
     contactSection() {
-      return this.page.acf.section_contact || {};
+      return this.page.acf?.section_contact;
     }
   },
   head() {
     return {
-      title: this.meta?.title,
-      meta: this.meta?.data
+      title: this.page.meta?.title,
+      meta: this.page.meta?.data
     };
   },
   components: {
@@ -64,7 +60,6 @@ export default {
     Testimonials
   },
   async fetch() {
-    //=============SHORT RESPONSE EXAMPLE START=========
     this.data = await this.$axios.get("/wp/v2/pages/<page-id>");
 
     let page = {
@@ -84,7 +79,6 @@ export default {
     };
 
     this.page = page.data;
-    this.loaded = true;
   }
 };
 </script>
